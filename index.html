@@ -1,174 +1,204 @@
-
 <!doctype html>
-<html lang="hi">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>D.S. ENTERPRISES | Products & Orders</title>
+<meta name="description" content="D.S. ENTERPRISES - Power and water solutions">
+<title>D.S. ENTERPRISES | Power & Water Solutions</title>
 <style>
-:root{--blue:#123d72;--light:#f3f6fb;--ink:#172033}
+:root{--navy:#10294b;--blue:#1767a8;--gold:#f4b33b;--ink:#17253b;--muted:#66758b;--bg:#f4f7fb}
 *{box-sizing:border-box}
-body{margin:0;font-family:Arial,sans-serif;background:var(--light);color:var(--ink)}
-header{background:var(--blue);color:white;padding:24px 16px;text-align:center}
-header h1{margin:0 0 8px;font-size:26px}
-header p{margin:4px}
-main{max-width:980px;margin:22px auto;padding:0 14px}
-.panel{background:white;border-radius:14px;padding:18px;margin:14px 0;box-shadow:0 2px 12px #15294a12}
-h2{margin:0 0 14px;color:var(--blue);font-size:21px}
-.products{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px}
-.product{border:1px solid #dce4f0;border-radius:12px;padding:14px}
-.product h3{margin:0 0 8px}
-.price{font-weight:bold;color:var(--blue)}
-label{display:block;font-weight:bold;margin:10px 0 5px}
-input,textarea,select{width:100%;padding:11px;border:1px solid #cbd5e1;border-radius:8px;font-size:16px}
-button{border:0;border-radius:9px;background:var(--blue);color:white;padding:12px 16px;font-size:16px;font-weight:bold;cursor:pointer;margin-top:12px}
-.muted{color:#596579;font-size:14px}
-.success{color:#087443;font-weight:bold}
-.error{color:#b42318;font-weight:bold}
-.row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-@media(max-width:600px){.row{grid-template-columns:1fr}}
-footer{text-align:center;padding:22px;color:#596579}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:Arial,Helvetica,sans-serif;color:var(--ink);background:var(--bg);line-height:1.55}
+.wrap{width:min(1120px,92%);margin:auto}
+header{background:var(--navy);color:#fff;position:sticky;top:0;z-index:5}
+.nav{min-height:68px;display:flex;align-items:center;justify-content:space-between;gap:15px}
+.brand{font-size:20px;font-weight:800;color:white;text-decoration:none;letter-spacing:.4px}
+.nav a:not(.brand){color:#fff;text-decoration:none;margin-left:18px;font-size:14px}
+.hero{background:linear-gradient(120deg,#10294b,#1767a8);color:#fff;padding:76px 0 68px}
+.hero h1{font-size:clamp(34px,6vw,58px);line-height:1.08;max-width:760px;margin:12px 0}
+.hero p{max-width:650px;color:#e4edf8;font-size:18px}
+.eyebrow{color:#ffd27b;font-weight:bold;letter-spacing:2px;text-transform:uppercase;font-size:12px}
+.btn{display:inline-block;background:var(--gold);color:#18243a;padding:13px 20px;border-radius:9px;text-decoration:none;font-weight:bold;border:0;cursor:pointer}
+.btn.alt{background:#fff;color:var(--navy);margin-left:8px}
+section{padding:52px 0}
+.section-head{margin-bottom:24px}
+.section-head h2{font-size:30px;margin:0 0 6px}
+.section-head p,.muted{color:var(--muted)}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(235px,1fr));gap:17px}
+.card{background:#fff;border:1px solid #e2e8f0;border-radius:15px;padding:21px;box-shadow:0 5px 20px #0c24400b}
+.symbol{height:52px;width:52px;border-radius:13px;background:#eaf2fb;display:grid;place-items:center;font-size:27px;overflow:hidden}
+.symbol img{width:100%;height:100%;object-fit:cover}
+.card h3{margin:14px 0 5px}
+.card p{color:var(--muted);min-height:48px}
+.price{font-weight:800;color:var(--navy);margin:8px 0}
+.card a{color:var(--blue);font-weight:bold;text-decoration:none}
+.about{background:#fff}
+.about-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:30px;align-items:center}
+.info{background:#f2f6fb;border-radius:14px;padding:20px}
+.info p{margin:8px 0}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.panel{background:#fff;border:1px solid #e2e8f0;border-radius:15px;padding:22px}
+label{display:block;font-weight:bold;margin:11px 0 5px}
+input,select,textarea{width:100%;padding:12px;border:1px solid #cbd5e1;border-radius:8px;font:inherit;margin-top:5px}
+textarea{min-height:90px}
+.form-note{font-size:13px;color:var(--muted)}
+footer{background:#0b1d35;color:#d9e4f2;padding:25px 0;font-size:14px}
+@media(max-width:700px){
+.nav{padding:13px 0;align-items:flex-start;flex-direction:column}
+.nav a:not(.brand){margin:0 14px 0 0}
+.hero{padding:55px 0}
+.about-grid,.contact-grid{grid-template-columns:1fr}
+.btn.alt{margin:10px 0 0}
+}
 </style>
 </head>
 <body>
 <header>
-<h1>D.S. ENTERPRISES</h1>
-<p>Inverter • Battery • Charger • Stabilizer • Control Transformer • RO</p>
-<p>Phone: 9268808469 | 9318423127</p>
+<div class="wrap nav">
+<a class="brand" href="#">D.S. ENTERPRISES</a>
+<nav>
+<a href="#products">Products</a>
+<a href="#about">About</a>
+<a href="#contact">Contact</a>
+</nav>
+</div>
 </header>
+
 <main>
-<section class="panel">
-<h2>हमारे प्रोडक्ट</h2>
-<p class="muted">कीमत और उपलब्धता की पुष्टि ऑर्डर स्वीकार करने से पहले की जाएगी।</p>
-<div class="products" id="products"><p>प्रोडक्ट लोड हो रहे हैं…</p></div>
+<section class="hero">
+<div class="wrap">
+<div class="eyebrow">Manufacturing · Supply · Service</div>
+<h1>Reliable Power & Water Solutions</h1>
+<p>Inverter batteries, battery chargers, voltage and servo stabilizers, control transformers, RO water purifiers and water coolers.</p>
+<a class="btn" href="#products">Explore Products</a>
+<a class="btn alt" href="https://wa.me/919268808469?text=Hello%20D.S.%20ENTERPRISES%2C%20I%20want%20product%20details." target="_blank" rel="noopener">WhatsApp Us</a>
+</div>
 </section>
 
-<section class="panel">
-<h2>ऑर्डर रिक्वेस्ट भेजें</h2>
-<p class="muted">यह भुगतान नहीं लेता। आपका ऑर्डर पहले कंपनी की मंजूरी के लिए जाएगा।</p>
-<form id="orderForm">
-<label>प्रोडक्ट चुनें</label>
-<select id="product" required><option value="">प्रोडक्ट चुनें</option></select>
-<div class="row">
-<div><label>मात्रा</label><input id="quantity" type="number" min="1" value="1" required></div>
-<div><label>आपका नाम</label><input id="name" maxlength="80" required></div>
+<section id="products">
+<div class="wrap">
+<div class="section-head">
+<h2>Our Products</h2>
+<p>Browse our current catalogue. Contact us for availability and order details.</p>
 </div>
-<div class="row">
-<div><label>मोबाइल नंबर</label><input id="phone" inputmode="numeric" maxlength="15" required></div>
-<div><label>ईमेल (वैकल्पिक)</label><input id="email" type="email" maxlength="120"></div>
+<div id="productCards" class="cards">
+<p>Loading products…</p>
 </div>
-<label>पूरा डिलीवरी पता</label>
-<textarea id="address" rows="3" maxlength="500" required></textarea>
-<button type="submit">ऑर्डर रिक्वेस्ट भेजें</button>
-<p id="orderMessage" aria-live="polite"></p>
-</form>
+</div>
 </section>
 
-<section class="panel">
-<h2>ऑर्डर ट्रैक करें</h2>
-<form id="trackForm">
-<div class="row">
-<div><label>Order ID</label><input id="orderId" required></div>
-<div><label>ऑर्डर में दिया मोबाइल नंबर</label><input id="trackPhone" inputmode="numeric" required></div>
+<section id="about" class="about">
+<div class="wrap about-grid">
+<div>
+<div class="eyebrow" style="color:#1767a8">About us</div>
+<h2>D.S. ENTERPRISES</h2>
+<p>We manufacture and supply power backup, voltage protection, transformer and water-related products. Contact us with your requirement for product specifications, pricing, warranty and delivery details.</p>
 </div>
-<button type="submit">स्टेटस देखें</button>
-<p id="trackMessage" aria-live="polite"></p>
+<div class="info">
+<h3>Business contact</h3>
+<p><b>Phone / WhatsApp:</b> 9268808469</p>
+<p><b>Alternate:</b> 9318423127</p>
+<p><b>Email:</b> dsenterprisesindia04@gmail.com</p>
+<p><b>Address:</b> H. No. 13-A, KH No. 6/13, Chanchal Park, Bakkarwala, Nangloi, West Delhi, Delhi – 110041</p>
+</div>
+</div>
+</section>
+
+<section id="contact">
+<div class="wrap">
+<div class="section-head">
+<h2>Send an Enquiry</h2>
+<p>Fill this form and continue to WhatsApp. Review and send the message in WhatsApp.</p>
+</div>
+<div class="contact-grid">
+<div class="panel">
+<form id="enquiry">
+<label>Your name
+<input id="name" required placeholder="Enter your name">
+</label>
+<label>Mobile number
+<input id="mobile" required inputmode="tel" placeholder="Your mobile number">
+</label>
+<label>Product
+<select id="product">
+<option>General enquiry</option>
+</select>
+</label>
+<label>Your requirement
+<textarea id="message" placeholder="Quantity, model, capacity or other details"></textarea>
+</label>
+<button class="btn" type="submit">Send enquiry on WhatsApp</button>
+<p class="form-note">WhatsApp will open with your message ready. Please press Send there.</p>
 </form>
+</div>
+<div class="panel">
+<h3>Contact directly</h3>
+<p>Call us for product details, pricing and availability.</p>
+<p><b>9268808469</b><br><b>9318423127</b></p>
+<a class="btn" href="https://wa.me/919268808469" target="_blank" rel="noopener">Open WhatsApp chat</a>
+</div>
+</div>
+</div>
 </section>
 </main>
-<footer>D.S. ENTERPRISES • ऑर्डर की पुष्टि फोन पर की जाएगी।</footer>
+
+<footer>
+<div class="wrap">© <span id="year"></span> D.S. ENTERPRISES · All rights reserved.</div>
+</footer>
 
 <script>
-const defaults=[
-{name:"Inverter Battery",description:"इन्वर्टर बैटरी"},
-{name:"Battery Charger",description:"बैटरी चार्जर"},
-{name:"Voltage / Servo Stabilizer",description:"वोल्टेज और सर्वो स्टेबलाइजर"},
-{name:"Control Transformer",description:"कंट्रोल ट्रांसफॉर्मर"},
-{name:"RO Water Purifier",description:"RO वाटर प्यूरीफायर"},
-{name:"Water Cooler",description:"वॉटर कूलर"},
-{name:"Welding Machine",description:"वेल्डिंग मशीन"}
-];
+document.getElementById('year').textContent=new Date().getFullYear();
 
-let products=defaults;
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 
 async function loadProducts(){
+const box=document.getElementById('productCards');
+const sel=document.getElementById('product');
+
 try{
 const r=await fetch('/api/products');
-if(r.ok){
-const d=await r.json();
-if(Array.isArray(d.products)&&d.products.length)products=d.products;
+if(!r.ok)throw Error('API');
+
+const data=await r.json();
+const items=data.products||[];
+
+box.innerHTML=items.length?items.map(p=>`
+<article class="card">
+<div class="symbol">${p.image_url?`<img src="${esc(p.image_url)}" alt="">`:'📦'}</div>
+<h3>${esc(p.name)}</h3>
+<p>${esc(p.details||'Contact us for product details.')}</p>
+${p.price!==null&&p.price!==''?`<div class="price">₹${Number(p.price).toLocaleString('en-IN')}</div>`:'<div class="price">Contact for price</div>'}
+<div class="muted">${p.stock>0?'Available':'Check availability'}${p.warranty?' · Warranty: '+esc(p.warranty):''}</div>
+<p><a href="#contact" data-p="${esc(p.name)}">Enquire now →</a></p>
+</article>`).join(''):'<p>Products will be added soon. Please contact us.</p>';
+
+sel.innerHTML='<option>General enquiry</option>'+items.map(p=>`<option>${esc(p.name)}</option>`).join('');
+
+box.querySelectorAll('[data-p]').forEach(a=>a.addEventListener('click',()=>sel.value=a.dataset.p));
+
+}catch(e){
+box.innerHTML='<p>Product catalogue is temporarily unavailable. Please contact us on WhatsApp.</p>';
 }
-}catch(e){}
-const wrap=document.getElementById('products');
-const sel=document.getElementById('product');
-wrap.innerHTML='';
-sel.innerHTML='<option value="">प्रोडक्ट चुनें</option>';
-products.forEach(p=>{
-const n=p.name||p;
-const d=p.description||'';
-const price=p.price?`₹${p.price}`:'कीमत पूछें';
-const el=document.createElement('div');
-el.className='product';
-el.innerHTML='<h3></h3><p class="muted"></p><p class="price"></p>';
-el.querySelector('h3').textContent=n;
-el.querySelector('.muted').textContent=d;
-el.querySelector('.price').textContent=price;
-wrap.appendChild(el);
-const o=document.createElement('option');
-o.value=n;
-o.textContent=n;
-sel.appendChild(o);
-});
 }
+
 loadProducts();
 
-document.getElementById('orderForm').addEventListener('submit',async e=>{
+document.getElementById('enquiry').addEventListener('submit',e=>{
 e.preventDefault();
-const msg=document.getElementById('orderMessage');
-msg.className='';
-msg.textContent='भेजा जा रहा है…';
-const payload={
-product:document.getElementById('product').value,
-quantity:Number(document.getElementById('quantity').value),
-name:document.getElementById('name').value.trim(),
-phone:document.getElementById('phone').value.trim(),
-email:document.getElementById('email').value.trim(),
-address:document.getElementById('address').value.trim()
-};
-try{
-const r=await fetch('/api/orders',{
-method:'POST',
-headers:{'Content-Type':'application/json'},
-body:JSON.stringify(payload)
-});
-const d=await r.json();
-if(!r.ok)throw new Error(d.error||'ऑर्डर नहीं भेजा जा सका');
-msg.className='success';
-msg.textContent=`ऑर्डर रिक्वेस्ट भेज दी गई। आपका Order ID: ${d.orderId} — इसे संभालकर रखें।`;
-e.target.reset();
-}catch(err){
-msg.className='error';
-msg.textContent=err.message+' (डेटाबेस binding और deployment जाँचें।)';
-}
-});
 
-document.getElementById('trackForm').addEventListener('submit',async e=>{
-e.preventDefault();
-const msg=document.getElementById('trackMessage');
-msg.className='';
-msg.textContent='जाँच हो रही है…';
-try{
-const id=encodeURIComponent(document.getElementById('orderId').value.trim());
-const phone=encodeURIComponent(document.getElementById('trackPhone').value.trim());
-const r=await fetch(`/api/orders/${id}?phone=${phone}`);
-const d=await r.json();
-if(!r.ok)throw new Error(d.error||'ऑर्डर नहीं मिला');
-msg.className='success';
-msg.textContent=`स्टेटस: ${d.status} | प्रोडक्ट: ${d.product} | मात्रा: ${d.quantity}`;
-}catch(err){
-msg.className='error';
-msg.textContent=err.message;
-}
+const n=document.getElementById('name').value.trim();
+const m=document.getElementById('mobile').value.trim();
+const p=document.getElementById('product').value;
+const d=document.getElementById('message').value.trim();
+
+const msg=`Hello D.S. ENTERPRISES,
+Name: ${n}
+Mobile: ${m}
+Product: ${p}
+Requirement: ${d}`;
+
+window.open('https://wa.me/919268808469?text='+encodeURIComponent(msg),'_blank','noopener');
 });
 </script>
 </body>
